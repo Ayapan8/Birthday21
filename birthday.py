@@ -1,6 +1,5 @@
 import streamlit as st
 from datetime import datetime
-import base64
 
 # Page Setup
 st.set_page_config(page_title="Happy Birthday 💖", layout="centered")
@@ -29,6 +28,7 @@ st.markdown("""
         font-size: 18px;
         color: #2c003e;
         margin-bottom: 10px;
+        text-align: center;
     }
     .flip-card {
         background-color: transparent;
@@ -95,10 +95,8 @@ if st.button("Reveal My Surprise ✨"):
     """
     st.markdown(video_html, unsafe_allow_html=True)
 
-
 # Special Memories Section (flip card version)
 st.markdown('<div class="section-title">📸 Special Memories</div>', unsafe_allow_html=True)
-
 
 image_urls = [
     "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Memories.jpg",
@@ -112,28 +110,21 @@ memory_captions = [
     "Our Favorite Time Together 🥰"
 ]
 
-cols = st.columns(len(image_paths))
-for i, path in enumerate(image_paths):
+cols = st.columns(len(image_urls))
+for i, url in enumerate(image_urls):
     with cols[i]:
-        try:
-            with open(path, "rb") as img_file:
-                img_bytes = img_file.read()
-                img_b64 = base64.b64encode(img_bytes).decode()
-
-            st.markdown(f"""
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="data:image/jpeg;base64,{img_b64}" style="width:100%; height:100%; object-fit:contain; border-radius:10px;">
-                        </div>
-                        <div class="flip-card-back">
-                            {memory_captions[i]}
-                        </div>
+        st.markdown(f"""
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{url}" style="width:100%; height:100%; object-fit:contain; border-radius:10px;">
+                    </div>
+                    <div class="flip-card-back">
+                        {memory_captions[i]}
                     </div>
                 </div>
-            """, unsafe_allow_html=True)
-        except FileNotFoundError:
-            st.error(f"Image not found at {path}")
+            </div>
+        """, unsafe_allow_html=True)
 
 # Letter Section
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
@@ -166,7 +157,7 @@ for gift in gifts:
 # Countdown Section
 st.markdown('<div class="section-title">📅 Birthday Countdown</div>', unsafe_allow_html=True)
 
-bday = datetime(datetime.now().year, 6, 21)  # Update birthday to June 21
+bday = datetime(datetime.now().year, 6, 21)  # Update birthday here if needed
 now = datetime.now()
 
 if now.month == 6 and now.day == 21:
@@ -216,43 +207,26 @@ if "selected_song" not in st.session_state:
 cols = st.columns(len(songs))
 for i, song in enumerate(songs):
     with cols[i]:
-        try:
-            with open(song["image_path"], "rb") as img_file:
-                img_bytes = img_file.read()
-                img_b64 = base64.b64encode(img_bytes).decode()
-
-            st.markdown(f"""
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="data:image/jpeg;base64,{img_b64}" style="width:100%; height:100%; object-fit:contain; border-radius:10px;">
-                        </div>
-                        <div class="flip-card-back">
-                            {song["compliment"]}
-                        </div>
+        st.markdown(f"""
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{song['image_path']}" style="width:100%; height:100%; object-fit:contain; border-radius:10px;">
+                    </div>
+                    <div class="flip-card-back">
+                        {song["compliment"]}
                     </div>
                 </div>
-            """, unsafe_allow_html=True)
+            </div>
+        """, unsafe_allow_html=True)
 
-            if st.button(f"▶️ Play Song {i+1}", key=f"play_{i}"):
-                st.session_state.selected_song = i
-        except FileNotFoundError:
-            st.error(f"Image not found at {song['image_path']}")
+        if st.button(f"▶️ Play Song {i+1}", key=f"play_{i}"):
+            st.session_state.selected_song = i
 
 # Display selected song
 if st.session_state.selected_song != -1:
-    try:
-        selected = songs[st.session_state.selected_song]
-        with open(selected["audio_path"], "rb") as audio_file:
-            audio_bytes = audio_file.read()
-            audio_b64 = base64.b64encode(audio_bytes).decode()
-            st.markdown(f"""
-                <audio controls autoplay style="width:100%; margin-top: 10px;">
-                    <source src="data:audio/mp3;base64,{audio_b64}" type="audio/mp3">
-                </audio>
-            """, unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.error(f"Audio file not found at {selected['audio_path']}")
+    selected = songs[st.session_state.selected_song]
+    st.audio(selected["audio_path"], format="audio/mp3")
 
 # Footer
 st.markdown("---")
