@@ -85,28 +85,25 @@ if st.button("Reveal My Surprise ✨"):
     st.balloons()
     st.success("You light up the world more than candles on your cake 🎂❤️")
 
-    video_path = "assets/video2.mp4"
-    try:
-        with open(video_path, "rb") as video_file:
-            video_bytes = video_file.read()
-            base64_video = base64.b64encode(video_bytes).decode()
+    video_url = "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/video2.mp4"
 
-            video_html = f"""
-<video autoplay loop controls width="100%" height="100%" style="border-radius: 10px; object-fit: cover;">
-                    <source src="data:video/mp4;base64,{base64_video}" type="video/mp4">
-                </video>
-            """
-            st.markdown(video_html, unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.error("Video file not found.")
+    video_html = f"""
+        <video autoplay loop controls width="100%" height="250px" style="border-radius: 10px; object-fit: cover;">
+            <source src="{video_url}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    """
+    st.markdown(video_html, unsafe_allow_html=True)
+
 
 # Special Memories Section (flip card version)
 st.markdown('<div class="section-title">📸 Special Memories</div>', unsafe_allow_html=True)
 
-image_paths = [
-    "assets/Memories.jpg",
-    "assets/image9.jpeg",
-    "assets/image10.jpeg"
+
+image_urls = [
+    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Memories.jpg",
+    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image9.jpeg",
+    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image10.jpeg"
 ]
 
 memory_captions = [
@@ -197,18 +194,18 @@ st.markdown('<div class="section-title">🎤 Your Beautiful Voice</div>', unsafe
 
 songs = [
     {
-        "image_path": r"assets/image.jpg",
-        "audio_path": r"assets/Birthdaysong1.mp3",
+        "image_path": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image.jpg",
+        "audio_path": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Birthdaysong1.mp3",
         "compliment": "Your voice is as soothing as a lullaby. 💖"
     },
     {
-        "image_path": r"assets/image4.jpeg",
-        "audio_path": r"assets/Birthdaysong2.mp3",
+        "image_path": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image4.jpeg",
+        "audio_path": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Birthdaysong2.mp3",
         "compliment": "You sound like sunshine wrapped in a melody ☀️🎶"
     },
     {
-        "image_path": r"assets/image5.jpeg",
-        "audio_path": r"assets/Birthdaysong1.mp3",
+        "image_path": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image5.jpeg",
+        "audio_path": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Birthdaysong1.mp3",
         "compliment": "Sweet, soft, and simply beautiful 💕"
     }
 ]
