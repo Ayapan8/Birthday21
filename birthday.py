@@ -91,7 +91,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Header ---
-st.markdown('<div class="title">🎂 Happy Birthday, My Sunshine! ☀️</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">🎂 Happy Birthday, My Senior! ☀️</div>', unsafe_allow_html=True)
 st.image("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif", use_container_width=True)
 
 # --- Special Messages ---
@@ -165,7 +165,7 @@ with st.expander("Click here to open your birthday letter 💝"):
             .......... (words yet to be written) ........
             .............................................
             """)
-            st.info("Revealing your message... ✨ Please wait a moment.")
+            st.info("Idhulla Onnum Illai...Keela pottu poo😂 .")
         elif time.time() - st.session_state.letter_start_time > 3:
             st.session_state.reveal_letter = True
             st.experimental_rerun()
@@ -178,7 +178,7 @@ with st.expander("Click here to open your birthday letter 💝"):
             .......... (words yet to be written) ........
             .............................................
             """)
-            st.info("Revealing your message... ✨ Please wait a moment.")
+            st.info("Idhulla Onnum Illai...Keela pottu poo😂")
     else:
         st.write("""
         Hey beautiful Doli,
