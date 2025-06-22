@@ -98,7 +98,7 @@ if st.button("Reveal My Surprise ✨"):
     st.balloons()
     st.success("You light up the world more than candles on your cake 🎂❤️")
 
-    video_url = "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/video2.mp4"
+    video_url = "https://github.com/Ayapan8/Birthday21/raw/main/assets/video2.mp4"
     video_html = f"""
         <video autoplay loop controls width="100%" height="250px" style="border-radius: 10px; object-fit: cover;">
             <source src="{video_url}" type="video/mp4">
@@ -111,9 +111,9 @@ if st.button("Reveal My Surprise ✨"):
 st.markdown('<div class="section-title">📸 Special Memories</div>', unsafe_allow_html=True)
 
 image_urls = [
-    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Memories.jpg",
-    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image9.jpeg",
-    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image10.jpeg"
+    "https://github.com/Ayapan8/Birthday21/raw/main/assets/Memories.jpg",
+    "https://github.com/Ayapan8/Birthday21/raw/main/assets/image9.jpeg",
+    "https://github.com/Ayapan8/Birthday21/raw/main/assets/image10.jpeg"
 ]
 
 memory_captions = [
@@ -197,18 +197,18 @@ st.markdown('<div class="section-title">🎤 Your Beautiful Voice</div>', unsafe
 
 songs = [
     {
-        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image.jpg",
-        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Birthdaysong1.mp3",
+        "image_url": "https://github.com/Ayapan8/Birthday21/raw/main/assets/image.jpg",
+        "audio_url": "https://github.com/Ayapan8/Birthday21/raw/main/assets/Birthdaysong1.mp3",
         "compliment": "Your voice is as soothing as a lullaby. 💖"
     },
     {
-        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image4.jpeg",
-        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Birthdaysong2.mp3",
+        "image_url": "https://github.com/Ayapan8/Birthday21/raw/main/assets/image4.jpeg",
+        "audio_url": "https://github.com/Ayapan8/Birthday21/raw/main/assets/Birthdaysong2.mp3",
         "compliment": "You sound like sunshine wrapped in a melody ☀️🎶"
     },
     {
-        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/image5.jpeg",
-        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/assets/Birthdaysong1.mp3",
+        "image_url": "https://github.com/Ayapan8/Birthday21/raw/main/assets/image5.jpeg",
+        "audio_url": "https://github.com/Ayapan8/Birthday21/raw/main/assets/Birthdaysong1.mp3",
         "compliment": "Sweet, soft, and simply beautiful 💕"
     }
 ]
