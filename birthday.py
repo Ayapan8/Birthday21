@@ -259,7 +259,14 @@ for i, song in enumerate(songs):
 
 if st.session_state.selected_song != -1:
     selected = songs[st.session_state.selected_song]
-    st.audio(selected["audio_url"], format="audio/mp3")
+    audio_html = f"""
+    <audio autoplay controls>
+        <source src="{selected['audio_url']}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    """
+    st.markdown(audio_html, unsafe_allow_html=True)
+
 
 # --- Footer ---
 st.markdown('<div style="text-align:center; font-size:14px; color:#2e003e;">Made with 💖 just for you.</div>', unsafe_allow_html=True)
