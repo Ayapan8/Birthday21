@@ -149,35 +149,50 @@ for i, url in enumerate(image_urls):
 # --- Personal Letter Section ---
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
 
-if "letter_clicked" not in st.session_state:
-    st.session_state.letter_clicked = False
+if 'reveal_letter' not in st.session_state:
+    st.session_state.reveal_letter = False
+    st.session_state.letter_start_time = 0
 
-# Show button if not clicked yet
-if not st.session_state.letter_clicked:
-    if st.button("Click here to open your birthday letter 💝"):
-        st.session_state.letter_clicked = True
-        st.rerun()
+with st.expander("Click here to open your birthday letter 💝"):
+    if not st.session_state.reveal_letter:
+        if st.session_state.letter_start_time == 0:
+            st.session_state.letter_start_time = time.time()
+            st.write("""
+            Hey beautiful Doli,
 
-# If clicked, show the loading message for 3 seconds and then full message
-if st.session_state.letter_clicked:
-    with st.spinner("Idhulla onnum illai... ✨ Keela pottu poo......."):
-        time.sleep(3)
+            .............................................
+            .............................................
+            .......... (words yet to be written) ........
+            .............................................
+            """)
+            st.info("Revealing your message... ✨ Please wait a moment.")
+        elif time.time() - st.session_state.letter_start_time > 3:
+            st.session_state.reveal_letter = True
+            st.experimental_rerun()
+        else:
+            st.write("""
+            Hey beautiful Doli,
 
-    st.write("""
-    Hey beautiful Doli,
+            .............................................
+            .............................................
+            .......... (words yet to be written) ........
+            .............................................
+            """)
+            st.info("Revealing your message... ✨ Please wait a moment.")
+    else:
+        st.write("""
+        Hey beautiful Doli,
 
-    On this special day, I want you to know just how much you mean to me.
-    Your கருணை, your சிரிப்பு, your கனவுகள் – they inspire me every single day.
-    I admire your strength and hope you never stop shining.
+        On this special day, I want you to know just how much you mean to me.
+        Your கருணை, your சிரிப்பு, your கனவுகள் – they inspire me every single day.
+        I admire your strength and hope you never stop shining.
 
-    I'm always cheering for you, every step of the way purinjukonga. 🌈
+        I'm always cheering for you, every step of the way purinjukonga. 🌈
 
-    Happy Birthday once again, with all my love 💕  
-    — Someone who truly cares about you Dolar  
-    Varataa Maame....
-    """)
-
-
+        Happy Birthday once again, with all my love 💕  
+        — Someone who truly cares about you Dolar  
+        Varataa Maame....
+        """)
 
 # --- Gift Wish List ---
 st.markdown('<div class="section-title">🎀 A Gift Wish List (Kaasu illai pa!)</div>', unsafe_allow_html=True)
