@@ -160,7 +160,7 @@ if not st.session_state.letter_clicked:
 
 # If clicked, show the loading message for 3 seconds and then full message
 if st.session_state.letter_clicked:
-    with st.spinner("Revealing your message... ✨ Please wait a moment."):
+    with st.spinner("Idhulla onnum illai... ✨ Keela pottu poo......."):
         time.sleep(3)
 
     st.write("""
