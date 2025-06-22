@@ -107,7 +107,7 @@ if st.button("Reveal My Surprise ✨"):
     video_url = "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/video2.mp4"
     video_html = f"""
         <div style="width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden;">
-            <video  controls style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+            <video autoplay controls style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
                 <source src="{video_url}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
