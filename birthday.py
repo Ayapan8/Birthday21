@@ -65,12 +65,14 @@ st.markdown("""
     .flip-card-front {
         background-color: #fff;
     }
-    .flip-card-front img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-    }
+   .flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: white;
+}
+
     .flip-card-back {
         background-color: #ffc0cb;
         color: #2e003e;
@@ -112,8 +114,8 @@ st.markdown('<div class="section-title">📸 Special Memories</div>', unsafe_all
 
 image_urls = [
     "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/Memories.jpg",
-    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image10.jpeg",
-    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image9.jpeg"
+    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image9.jpeg",
+    "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image10.jpeg"
 ]
 
 memory_captions = [
