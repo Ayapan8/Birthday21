@@ -111,9 +111,9 @@ if st.button("Reveal My Surprise ✨"):
 st.markdown('<div class="section-title">📸 Special Memories</div>', unsafe_allow_html=True)
 
 image_urls = [
-    "static/Memories.jpg",
-    "static/image9.jpeg",
-    "static/image10.jpeg"
+    "https://github.com/Ayapan8/Birthday21/blob/main/static/Memories.jpg",
+    "https://github.com/Ayapan8/Birthday21/blob/main/static/image10.jpeg",
+    "https://github.com/Ayapan8/Birthday21/blob/main/static/image9.jpeg"
 ]
 
 memory_captions = [
