@@ -149,11 +149,18 @@ for i, url in enumerate(image_urls):
 # --- Personal Letter Section ---
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
 
-with st.expander("Click here to open your birthday letter 💝"):
-    if 'reveal_done' not in st.session_state:
-        st.session_state.reveal_done = False
+if 'reveal_start_time' not in st.session_state:
+    st.session_state.reveal_start_time = None
 
-    if not st.session_state.reveal_done:
+with st.expander("Click here to open your birthday letter 💝"):
+    # Step 1: Start timer
+    if st.session_state.reveal_start_time is None:
+        st.session_state.reveal_start_time = time.time()
+
+    # Step 2: Calculate how long it has been since the expander opened
+    elapsed = time.time() - st.session_state.reveal_start_time
+
+    if elapsed < 3:
         st.write("""
         Hey beautiful Doli,
 
@@ -162,11 +169,8 @@ with st.expander("Click here to open your birthday letter 💝"):
         .......... (words yet to be written) ........
         .............................................
         """)
-
-        with st.spinner("Revealing your message... ✨"):
-            time.sleep(3)  # Delay in seconds
-        st.session_state.reveal_done = True
-        st.experimental_rerun()
+        st.info("Revealing your message... ✨ Please wait a moment.")
+        st.stop()  # Gracefully stops here and will rerun automatically
     else:
         st.write("""
         Hey beautiful Doli,
@@ -181,6 +185,7 @@ with st.expander("Click here to open your birthday letter 💝"):
         — Someone who truly cares about you Dolar  
         Varataa Maame....
         """)
+
 
 # --- Gift Wish List ---
 st.markdown('<div class="section-title">🎀 A Gift Wish List (Kaasu illai pa!)</div>', unsafe_allow_html=True)
