@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 from datetime import datetime
 
 # --- Page Setup ---
@@ -149,10 +150,10 @@ for i, url in enumerate(image_urls):
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
 
 with st.expander("Click here to open your birthday letter 💝"):
-    if 'show_real_letter' not in st.session_state:
-        st.session_state.show_real_letter = False
+    if 'reveal_done' not in st.session_state:
+        st.session_state.reveal_done = False
 
-    if not st.session_state.show_real_letter:
+    if not st.session_state.reveal_done:
         st.write("""
         Hey beautiful Doli,
 
@@ -161,9 +162,11 @@ with st.expander("Click here to open your birthday letter 💝"):
         .......... (words yet to be written) ........
         .............................................
         """)
-        if st.button("Reveal the real message ✨"):
-            st.session_state.show_real_letter = True
-            st.experimental_rerun()
+
+        with st.spinner("Revealing your message... ✨"):
+            time.sleep(3)  # Delay in seconds
+        st.session_state.reveal_done = True
+        st.experimental_rerun()
     else:
         st.write("""
         Hey beautiful Doli,
@@ -178,7 +181,6 @@ with st.expander("Click here to open your birthday letter 💝"):
         — Someone who truly cares about you Dolar  
         Varataa Maame....
         """)
-
 
 # --- Gift Wish List ---
 st.markdown('<div class="section-title">🎀 A Gift Wish List (Kaasu illai pa!)</div>', unsafe_allow_html=True)
