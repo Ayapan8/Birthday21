@@ -259,7 +259,7 @@ for i, song in enumerate(songs):
             </div>
         """, unsafe_allow_html=True)
 
-        if st.button(f"▶️ Play Song {i+1}", key=f"play_{i}"):
+        if st.button(f"▶️ Un Kural {i+1}", key=f"play_{i}"):
             st.session_state.selected_song = i
 
 if st.session_state.selected_song != -1:
