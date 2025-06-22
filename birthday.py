@@ -36,7 +36,7 @@ st.markdown("""
     .flip-card {
         background-color: transparent;
         width: 100%;
-        height: 250px;
+        aspect-ratio: 3/4;
         perspective: 1000px;
         margin-bottom: 15px;
     }
@@ -64,15 +64,17 @@ st.markdown("""
     }
     .flip-card-front {
         background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
     }
-   .flip-card-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 10px;
-    background-color: white;
-}
-
+    .flip-card-front img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
     .flip-card-back {
         background-color: #ffc0cb;
         color: #2e003e;
@@ -93,7 +95,7 @@ st.image("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif", use_conta
 
 # --- Special Messages ---
 st.markdown('<div class="message">Wishing you a day full of love, laughter, and everything you dream of! 💖</div>', unsafe_allow_html=True)
-st.markdown('<div class="message">You are a blessing to everyone around you. May your year be filled with light, success, and happiness. 🌟</div>', unsafe_allow_html=True)
+st.markdown('<div class="message">You are a blessing to everyone around you. May your year be filled with light, success, and happiness. ✨</div>', unsafe_allow_html=True)
 
 # --- Surprise Section ---
 if st.button("Reveal My Surprise ✨"):
@@ -102,10 +104,12 @@ if st.button("Reveal My Surprise ✨"):
 
     video_url = "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/video2.mp4"
     video_html = f"""
-        <video autoplay loop muted controls width="100%" height="250px" style="border-radius: 10px; object-fit: cover;">
-            <source src="{video_url}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div style="width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden;">
+            <video autoplay loop muted controls style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                <source src="{video_url}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     """
     st.markdown(video_html, unsafe_allow_html=True)
 
