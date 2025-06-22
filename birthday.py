@@ -94,13 +94,14 @@ st.markdown('<div class="title">🎂 Happy Birthday, My Sunshine! ☀️</div>',
 st.image("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif", use_container_width=True)
 
 # --- Special Messages ---
+st.markdown('<div class="message">Happyaga Irungoll Hope your vaithaivali gets resolved this year! 💖</div>', unsafe_allow_html=True)
 st.markdown('<div class="message">Wishing you a day full of love, laughter, and everything you dream of! 💖</div>', unsafe_allow_html=True)
-st.markdown('<div class="message">You are a blessing to everyone around you. May your year be filled with light, success, and happiness. ✨</div>', unsafe_allow_html=True)
+st.markdown('<div class="message">You are a blessing to everyone around you. May your year be filled with Pragasamana Velicham, success, and happiness. ✨</div>', unsafe_allow_html=True)
 
 # --- Surprise Section ---
 if st.button("Reveal My Surprise ✨"):
     st.balloons()
-    st.success("You light up the world more than candles on your cake 🎂❤️")
+    st.success("You light up the world more than candles on your cakengaaa 🎂❤️")
 
     video_url = "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/video2.mp4"
     video_html = f"""
@@ -146,28 +147,46 @@ for i, url in enumerate(image_urls):
 
 # --- Personal Letter Section ---
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
+
 with st.expander("Click here to open your birthday letter 💝"):
-    st.write("""
-    Hey beautiful Doli,
+    if 'show_real_letter' not in st.session_state:
+        st.session_state.show_real_letter = False
 
-    On this special day, I want you to know just how much you mean to me.
-    Your கருணை, your சிரிப்பு, your கனவுகள் – they inspire me every single day.
-    I admire your strength and hope you never stop shining.
+    if not st.session_state.show_real_letter:
+        st.write("""
+        Hey beautiful Doli,
 
-    I'm always cheering for you, every step of the way purinjukonga. 🌈
+        .............................................
+        .............................................
+        .......... (words yet to be written) ........
+        .............................................
+        """)
+        if st.button("Reveal the real message ✨"):
+            st.session_state.show_real_letter = True
+            st.experimental_rerun()
+    else:
+        st.write("""
+        Hey beautiful Doli,
 
-    Happy Birthday once again, with all my love 💕  
-    — Someone who truly cares about you Dolar  
-    Varataa Maame....
-    """)
+        On this special day, I want you to know just how much you mean to me.
+        Your கருணை, your சிரிப்பு, your கனவுகள் – they inspire me every single day.
+        I admire your strength and hope you never stop shining.
+
+        I'm always cheering for you, every step of the way purinjukonga. 🌈
+
+        Happy Birthday once again, with all my love 💕  
+        — Someone who truly cares about you Dolar  
+        Varataa Maame....
+        """)
+
 
 # --- Gift Wish List ---
-st.markdown('<div class="section-title">🎀 A Gift Wish List (Just for Fun!)</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">🎀 A Gift Wish List (Kaasu illai pa!)</div>', unsafe_allow_html=True)
 gifts = [
     "💄 A self-care box full of your favorite skincare",
     "🎧 A playlist of songs that remind me of you",
     "🎨 A digital portrait of you as a queen 👑",
-    "💌 A handmade letter with all my love"
+    "💌 A handmade letter with all my admiration"
 ]
 for gift in gifts:
     st.markdown(f"- {gift}")
