@@ -149,14 +149,23 @@ for i, url in enumerate(image_urls):
 # --- Personal Letter Section ---
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
 
-if 'reveal_letter' not in st.session_state:
-    st.session_state.reveal_letter = False
-    st.session_state.letter_start_time = 0
+# Use a toggle button instead of relying only on expander
+if "letter_opened" not in st.session_state:
+    st.session_state.letter_opened = False
+if "letter_reveal_time" not in st.session_state:
+    st.session_state.letter_reveal_time = 0
+if "letter_revealed" not in st.session_state:
+    st.session_state.letter_revealed = False
 
-with st.expander("Click here to open your birthday letter 💝"):
-    if not st.session_state.reveal_letter:
-        if st.session_state.letter_start_time == 0:
-            st.session_state.letter_start_time = time.time()
+# Button to start reveal process
+if st.button("Click here to open your birthday letter 💝"):
+    st.session_state.letter_opened = True
+    st.session_state.letter_reveal_time = time.time()
+
+if st.session_state.letter_opened:
+    if not st.session_state.letter_revealed:
+        elapsed = time.time() - st.session_state.letter_reveal_time
+        if elapsed < 3:
             st.write("""
             Hey beautiful Doli,
 
@@ -166,19 +175,9 @@ with st.expander("Click here to open your birthday letter 💝"):
             .............................................
             """)
             st.info("Revealing your message... ✨ Please wait a moment.")
-        elif time.time() - st.session_state.letter_start_time > 3:
-            st.session_state.reveal_letter = True
-            st.experimental_rerun()
         else:
-            st.write("""
-            Hey beautiful Doli,
-
-            .............................................
-            .............................................
-            .......... (words yet to be written) ........
-            .............................................
-            """)
-            st.info("Revealing your message... ✨ Please wait a moment.")
+            st.session_state.letter_revealed = True
+            st.experimental_rerun()
     else:
         st.write("""
         Hey beautiful Doli,
@@ -193,6 +192,7 @@ with st.expander("Click here to open your birthday letter 💝"):
         — Someone who truly cares about you Dolar  
         Varataa Maame....
         """)
+
 
 # --- Gift Wish List ---
 st.markdown('<div class="section-title">🎀 A Gift Wish List (Kaasu illai pa!)</div>', unsafe_allow_html=True)
