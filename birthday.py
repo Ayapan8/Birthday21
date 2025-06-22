@@ -98,9 +98,9 @@ if st.button("Reveal My Surprise ✨"):
     st.balloons()
     st.success("You light up the world more than candles on your cake 🎂❤️")
 
-    video_url = "static/video2.mp4"
+    video_url = "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/video2.mp4"
     video_html = f"""
-        <video autoplay loop controls width="100%" height="250px" style="border-radius: 10px; object-fit: cover;">
+        <video autoplay loop muted controls width="100%" height="250px" style="border-radius: 10px; object-fit: cover;">
             <source src="{video_url}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -115,7 +115,6 @@ image_urls = [
     "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image10.jpeg",
     "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image9.jpeg"
 ]
-
 
 memory_captions = [
     "Unforgettable Moment 💫",
@@ -198,18 +197,18 @@ st.markdown('<div class="section-title">🎤 Your Beautiful Voice</div>', unsafe
 
 songs = [
     {
-        "image_url": "static/image.jpg",
-        "audio_url": "static/Birthdaysong1.mp3",
+        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image.jpg",
+        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/Birthdaysong1.mp3",
         "compliment": "Your voice is as soothing as a lullaby. 💖"
     },
     {
-        "image_url": "static/image4.jpeg",
-        "audio_url": "static/Birthdaysong2.mp3",
+        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image4.jpeg",
+        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/Birthdaysong2.mp3",
         "compliment": "You sound like sunshine wrapped in a melody ☀️🎶"
     },
     {
-        "image_url": "static/image5.jpeg",
-        "audio_url": "static/Birthdaysong1.mp3",
+        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image5.jpeg",
+        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/Birthdaysong1.mp3",
         "compliment": "Sweet, soft, and simply beautiful 💕"
     }
 ]
@@ -242,4 +241,3 @@ if st.session_state.selected_song != -1:
 
 # --- Footer ---
 st.markdown('<div style="text-align:center; font-size:14px; color:#2e003e;">Made with 💖 just for you.</div>', unsafe_allow_html=True)
-
