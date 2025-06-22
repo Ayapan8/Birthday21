@@ -149,28 +149,36 @@ for i, url in enumerate(image_urls):
 # --- Personal Letter Section ---
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
 
-if 'reveal_start_time' not in st.session_state:
-    st.session_state.reveal_start_time = None
+if 'reveal_letter' not in st.session_state:
+    st.session_state.reveal_letter = False
+    st.session_state.letter_start_time = 0
 
 with st.expander("Click here to open your birthday letter 💝"):
-    # Step 1: Start timer
-    if st.session_state.reveal_start_time is None:
-        st.session_state.reveal_start_time = time.time()
+    if not st.session_state.reveal_letter:
+        if st.session_state.letter_start_time == 0:
+            st.session_state.letter_start_time = time.time()
+            st.write("""
+            Hey beautiful Doli,
 
-    # Step 2: Calculate how long it has been since the expander opened
-    elapsed = time.time() - st.session_state.reveal_start_time
+            .............................................
+            .............................................
+            .......... (words yet to be written) ........
+            .............................................
+            """)
+            st.info("Revealing your message... ✨ Please wait a moment.")
+        elif time.time() - st.session_state.letter_start_time > 3:
+            st.session_state.reveal_letter = True
+            st.experimental_rerun()
+        else:
+            st.write("""
+            Hey beautiful Doli,
 
-    if elapsed < 3:
-        st.write("""
-        Hey beautiful Doli,
-
-        .............................................
-        .............................................
-        .......... (words yet to be written) ........
-        .............................................
-        """)
-        st.info("Revealing your message... ✨ Please wait a moment.")
-        st.stop()  # Gracefully stops here and will rerun automatically
+            .............................................
+            .............................................
+            .......... (words yet to be written) ........
+            .............................................
+            """)
+            st.info("Revealing your message... ✨ Please wait a moment.")
     else:
         st.write("""
         Hey beautiful Doli,
@@ -186,7 +194,6 @@ with st.expander("Click here to open your birthday letter 💝"):
         Varataa Maame....
         """)
 
-
 # --- Gift Wish List ---
 st.markdown('<div class="section-title">🎀 A Gift Wish List (Kaasu illai pa!)</div>', unsafe_allow_html=True)
 gifts = [
@@ -199,7 +206,7 @@ for gift in gifts:
     st.markdown(f"- {gift}")
 
 # --- Birthday Countdown ---
-st.markdown('<div class="section-title">📅 Birthday Countdown</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">🗕️ Birthday Countdown</div>', unsafe_allow_html=True)
 
 bday = datetime(datetime.now().year, 6, 21)
 now = datetime.now()
