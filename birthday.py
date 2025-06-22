@@ -241,3 +241,4 @@ if st.session_state.selected_song != -1:
 
 # --- Footer ---
 st.markdown('<div style="text-align:center; font-size:14px; color:#2e003e;">Made with 💖 just for you.</div>', unsafe_allow_html=True)
+
