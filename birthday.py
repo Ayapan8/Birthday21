@@ -193,11 +193,14 @@ st.markdown('<div class="section-title">🗕️ Birthday Countdown</div>', unsaf
 
 bday = datetime(datetime.now().year, 6, 21)
 now = datetime.now()
+yesterday = bday.replace(day=22) if now.month == 6 and now.day == 22 else None
 
 if now.month == 6 and now.day == 21:
     st.success("🎉 Today is your special day, my sunshine! 💖")
     st.balloons()
     st.markdown("**May your day be filled with laughter, surprises, and love beyond words. Happy Birthday! 🎂🌈**")
+elif yesterday and now.date() == yesterday.date():
+    st.info("💖 Your birthday was just yesterday! Hope you had a magical day! 🎉")
 elif now > bday:
     next_bday = datetime(now.year + 1, 6, 21)
     days_left = (next_bday - now).days
@@ -205,6 +208,7 @@ elif now > bday:
 else:
     days_left = (bday - now).days
     st.info(f"⏳ {days_left} days left until your birthday!")
+
 
 # --- Send Message Form ---
 st.markdown('<div class="section-title">📬 Send Me a Message</div>', unsafe_allow_html=True)
