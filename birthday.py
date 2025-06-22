@@ -197,7 +197,7 @@ st.markdown('<div class="section-title">🎤 Your Beautiful Voice</div>', unsafe
 
 songs = [
     {
-        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image.jpg",
+        "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image.JPG",
         "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/Birthdaysong1.mp3",
         "compliment": "Your voice is as soothing as a lullaby. 💖"
     },
@@ -208,7 +208,7 @@ songs = [
     },
     {
         "image_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/image5.jpeg",
-        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/Birthdaysong1.mp3",
+        "audio_url": "https://raw.githubusercontent.com/Ayapan8/Birthday21/main/static/Birthdaysong3.mp3",
         "compliment": "Sweet, soft, and simply beautiful 💕"
     }
 ]
