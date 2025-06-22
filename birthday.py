@@ -235,8 +235,19 @@ songs = [
     }
 ]
 
-if "selected_song" not in st.session_state:
-    st.session_state.selected_song = -1
+# Persistent audio element and JavaScript setup
+st.markdown("""
+    <audio id="birthdayAudio" controls style="width: 100%; margin-top: 10px;"></audio>
+    <script>
+    function playSong(songUrl) {
+        var audio = document.getElementById("birthdayAudio");
+        if (audio) {
+            audio.src = songUrl;
+            audio.play();
+        }
+    }
+    </script>
+""", unsafe_allow_html=True)
 
 cols = st.columns(len(songs))
 for i, song in enumerate(songs):
@@ -253,20 +264,8 @@ for i, song in enumerate(songs):
                 </div>
             </div>
         """, unsafe_allow_html=True)
-
         if st.button(f"▶️ Play Song {i+1}", key=f"play_{i}"):
-            st.session_state.selected_song = i
-
-if st.session_state.selected_song != -1:
-    selected = songs[st.session_state.selected_song]
-    audio_html = f"""
-    <audio autoplay controls>
-        <source src="{selected['audio_url']}" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    """
-    st.markdown(audio_html, unsafe_allow_html=True)
-
+            st.markdown(f"<script>playSong('{song['audio_url']}');</script>", unsafe_allow_html=True)
 
 # --- Footer ---
 st.markdown('<div style="text-align:center; font-size:14px; color:#2e003e;">Made with 💖 just for you.</div>', unsafe_allow_html=True)
