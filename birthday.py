@@ -145,6 +145,7 @@ for i, url in enumerate(image_urls):
                 </div>
             </div>
         """, unsafe_allow_html=True)
+
 # --- Personal Letter Section ---
 st.markdown('<div class="section-title">💌 A Personal Letter</div>', unsafe_allow_html=True)
 
@@ -152,44 +153,48 @@ if "letter_reveal_stage" not in st.session_state:
     st.session_state.letter_reveal_stage = "hidden"
     st.session_state.letter_reveal_time = 0.0
 
-# Show button only when letter is hidden
+placeholder = st.empty()
+
 if st.session_state.letter_reveal_stage == "hidden":
-    if st.button("Click here to open your birthday letter 💝"):
+    if placeholder.button("Click here to open your birthday letter 💝"):
         st.session_state.letter_reveal_stage = "waiting"
         st.session_state.letter_reveal_time = time.time()
+        st.experimental_rerun()
 
-# If waiting, show placeholder and check timer
 elif st.session_state.letter_reveal_stage == "waiting":
     elapsed = time.time() - st.session_state.letter_reveal_time
-    st.write("""
-    Hey beautiful Doli,
 
-    .............................................
-    .............................................
-    .......... (words yet to be written) ........
-    .............................................
-    """)
-    st.info("Revealing your message... ✨ Please wait a moment.")
+    if elapsed < 3:
+        with placeholder.container():
+            st.write("""
+            Hey beautiful Doli,
 
-    if elapsed >= 3:
+            .............................................
+            .............................................
+            .......... (words yet to be written) ........
+            .............................................
+            """)
+            st.info("Revealing your message... ✨ Please wait a moment.")
+    else:
         st.session_state.letter_reveal_stage = "revealed"
         st.experimental_rerun()
 
-# Final reveal after 3 seconds
 elif st.session_state.letter_reveal_stage == "revealed":
-    st.write("""
-    Hey beautiful Doli,
+    with placeholder.container():
+        st.write("""
+        Hey beautiful Doli,
 
-    On this special day, I want you to know just how much you mean to me.
-    Your கருணை, your சிரிப்பு, your கனவுகள் – they inspire me every single day.
-    I admire your strength and hope you never stop shining.
+        On this special day, I want you to know just how much you mean to me.
+        Your கருணை, your சிரிப்பு, your கனவுகள் – they inspire me every single day.
+        I admire your strength and hope you never stop shining.
 
-    I'm always cheering for you, every step of the way purinjukonga. 🌈
+        I'm always cheering for you, every step of the way purinjukonga. 🌈
 
-    Happy Birthday once again, with all my love 💕  
-    — Someone who truly cares about you Dolar  
-    Varataa Maame....
-    """)
+        Happy Birthday once again, with all my love 💕  
+        — Someone who truly cares about you Dolar  
+        Varataa Maame....
+        """)
+
 
 
 # --- Gift Wish List ---
