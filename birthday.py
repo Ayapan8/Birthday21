@@ -165,7 +165,7 @@ with st.expander("Click here to open your birthday letter 💝"):
             .......... (words yet to be written) ........
             .............................................
             """)
-            st.info("Idhulla Onnum Illai...Keela pottu poo😂 .")
+            st.info("Revealing your message... ✨ Please wait a moment.")
         elif time.time() - st.session_state.letter_start_time > 3:
             st.session_state.reveal_letter = True
             st.experimental_rerun()
@@ -178,7 +178,7 @@ with st.expander("Click here to open your birthday letter 💝"):
             .......... (words yet to be written) ........
             .............................................
             """)
-            st.info("Idhulla Onnum Illai...Keela pottu poo😂")
+            st.info("Revealing your message... ✨ Please wait a moment.")
     else:
         st.write("""
         Hey beautiful Doli,
