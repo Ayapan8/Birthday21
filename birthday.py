@@ -91,7 +91,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Header ---
-st.markdown('<div class="title">🎂 Happy Birthday, My Senior! ☀️</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">🎂 Belated Happy Birthday, My Senior! ☀️</div>', unsafe_allow_html=True)
 st.image("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif", use_container_width=True)
 
 # --- Special Messages ---
