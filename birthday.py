@@ -95,7 +95,7 @@ st.markdown('<div class="title">🎂 Belated Happy Birthday, My Senior! ☀️</
 st.image("https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif", use_container_width=True)
 
 # --- Special Messages ---
-st.markdown('<div class="message">Happyaga Irungoll Hope your vaithaivali gets resolved this year! 💖</div>', unsafe_allow_html=True)
+st.markdown('<div class="message">Happyaga Irungol, Hope your vaithaivali gets resolved this year! 💖</div>', unsafe_allow_html=True)
 st.markdown('<div class="message">Wishing you a day full of love, laughter, and everything you dream of! 💖</div>', unsafe_allow_html=True)
 st.markdown('<div class="message">You are a blessing to everyone around you. May your year be filled with Pragasamana Velicham, success, and happiness. ✨</div>', unsafe_allow_html=True)
 
